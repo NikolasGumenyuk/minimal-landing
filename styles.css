@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,500;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --black: #333;
+    --white: #fff;
+    --body: #f8f8f8;
+    --body-border: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    min-height: 150vh;
+    background-color: var(--body);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    z-index: 1000;
+    border-bottom: 1px solid var(--body-border);
+    transition: .5s ease;
+}
+
+header.sticky {
+    padding: 10px 100px;
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menu-button {
+    position: relative;
+    width: 33px;
+    height: 33px;
+    background: url('./assets/images/menu.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.menu-button.active {
+    background: url('./assets/images/close.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: .25s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navigation.active {
+    opacity: 1;
+    visibility: visible;
+    transition: .25s;
+}
+
+.navigation li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.navigation li a {
+    color: var(--black);
+    font-size: 1.2em;
+    letter-spacing: 4px;
+    display: inline-block;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+section {
+   position: relative;
+   padding: 100px;
+   width: 100%;
+   min-height: 100vh;
+   background: var(--white);
+   transition: .25;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .content-box {
+    position: relative;
+    z-index: 1;
+    background-color: var(--white);
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .content-box h3 {
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--black);
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.banner .content-box h4 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: var(--black);
+    letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 20px;
+    border: 2px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .25s;
+}
+
+.btn:hover {
+    border: 2px solid var(--white);
+    color: var(--white);
+    background-color: var(--black);
+    transition: .25s;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title p {
+    margin-top: 40px;
+    max-width: 700px;
+    text-align: center;
+}
+
+.title h2 {
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: var(--black);
+}
+
+.title h2::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 6px;
+    background-color: var(--black);
+}
+
+p {
+    color: var(--black);
+    font-weight: 300;
+    text-align: justify;
+}
+
+.about .content-box {
+    position: relative;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.about .content-box .content {
+    position: relative;
+}
+
+.about .content-box .content .image-box {
+    min-height: 400px;
+}
+
+.post {
+    position: relative;
+}
+
+.post .content-box {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.post .content-box .post-column {
+    position: relative;
+}
+
+.post .content-box .post-column .post-box {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.post .content-box .post-column .post-box.extra-height {
+    height: 600px;
+}
+
+.post .content-box .post-column .post-box .text-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+    transform: .25s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.post .content-box .post-column .post-box:hover .text-box {
+    opacity: .9;
+    visibility: visible;
+    transition: .4s;
+}
+
+.post .content-box .post-column .post-box .text-box h3 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 1em;
+    color: var(--black);
+}
+
+.post .content-box .post-column .post-box .text-box .btn {
+    padding: 4px 10px;
+    background-color: var(--black);
+    color: var(--white);
+    font-weight: 300;
+    font-size: 1em;
+}
+
+.mgt60 {
+    margin-top: 60px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact .contact-form {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+.contact .contact-form .row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact .contact-form .row2 {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .contact-form .row input,
+.contact .contact-form .row2 textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--black);
+    outline: none;
+}
+
+::placeholder {
+    color: var(--black)
+}
+
+.contact .contact-form .row2 input[type="submit"] {
+    background-color: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+    cursor: pointer;
+}
+
+.contact .contact-form .row2 input[type="submit"]:hover {
+    background-color: var(--black);
+    color: var(--white);
+    cursor: pointer;
+}
+
+footer {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--body);
+    border-top: 1px solid var(--body-border);
+}
+
+footer .footer-menu {
+    display: flex;
+}
+
+footer .footer-menu li {
+    list-style: none;
+}
+
+footer .footer-menu li a {
+    color: var(--black);
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 20px;
+}
+
+.copyright-text {
+    color: var(--black);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+
+    header.sticky {
+        padding: 10px 20px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .banner .content-box {
+        padding: 40px 30px;
+    }
+
+    .about .content-box,
+    .post .content-box,
+    .contact .contact-form .row {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .post .content-box .post-column .post-box,
+    .post .content-box .post-column .post-box.extra-height {
+        height: 300px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    footer .footer-menu {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    footer .footer-menu li a {
+        margin: 5px 0;
+    }
+
+    .title {
+        padding-top: 50px;
+    }
+
+    .mgt60 {
+        margin-top: 0px;
+    }    
+
+}
